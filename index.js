@@ -5,8 +5,9 @@ const messageRouter = require('./routes/message.routes')
 
 const app = express()
 
-app.use(cors())
 app.use(express.json())
+
+app.options('*', cors())
 
 app.use('/api', messageRouter)
 
