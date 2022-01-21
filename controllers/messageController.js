@@ -35,7 +35,7 @@ class MessageController {
 		let mailOptionsToReceiver = {
 			from: `${email}`,
 			to: 'mf.mail.service@gmail.com',
-			subject: 'A New Message via PP Contact Form',
+			subject: 'A New Message via PP Contact Form❗',
 			text: `A New Message From ${email}! | Message: ${message} | Name: ${name} | Date: ${date}`,
 			html: `<div style="margin: 0; background: #1e1e2f; width: auto; height: 100vh;">
 		<h1 style="color: rgb(254, 255, 225); text-align: center;">
