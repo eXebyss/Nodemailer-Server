@@ -115,21 +115,15 @@ class MessageController {
 							res.status(400).json({ message: `Email sending Error 2!` })
 						} else {
 							console.log('Email to sender sent successfully!')
-							res
-								.status(201)
-								.json({
-									message: `Email to receiver and sender sent successfully!`,
-								})
+							res.status(201).json({
+								message: `Email to receiver and sender sent successfully!`,
+							})
 						}
 					})
-					// res
-					// 	.status(201)
-					// 	.json({ message: `Email to receiver sent successfully!` })
 				}
 			})
 
 			saveMessage({ name, email, message, date })
-			// res.status(200).json({ message: `Message has been saved successfully!` })
 		}
 	}
 }
