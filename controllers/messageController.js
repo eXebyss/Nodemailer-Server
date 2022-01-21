@@ -108,25 +108,28 @@ class MessageController {
 					res.status(400).json({ message: `Email sending Error 1!` })
 				} else {
 					console.log('Email to receiver sent successfully!')
-					res
-						.status(200)
-						.json({ message: `Email to receiver sent successfully!` })
+
+					transporter.sendMail(mailOptionsToSender, function (err, data) {
+						if (err) {
+							console.log('Error: ' + err)
+							res.status(400).json({ message: `Email sending Error 2!` })
+						} else {
+							console.log('Email to sender sent successfully!')
+							res
+								.status(201)
+								.json({
+									message: `Email to receiver and sender sent successfully!`,
+								})
+						}
+					})
+					// res
+					// 	.status(201)
+					// 	.json({ message: `Email to receiver sent successfully!` })
 				}
 			})
 
 			saveMessage({ name, email, message, date })
-
-			transporter.sendMail(mailOptionsToSender, function (err, data) {
-				if (err) {
-					console.log('Error: ' + err)
-					res.status(400).json({ message: `Email sending Error 2!` })
-				} else {
-					console.log('Email to sender sent successfully!')
-					res
-						.status(200)
-						.json({ message: `Email to sender sent successfully!` })
-				}
-			})
+			// res.status(200).json({ message: `Message has been saved successfully!` })
 		}
 	}
 }
