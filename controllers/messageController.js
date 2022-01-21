@@ -46,11 +46,10 @@ class MessageController {
 		<p
 			style="
 				color: rgb(254, 255, 225);
-				font-weight: normal;
-				font-style: italic;
+				font-weight: normal;			
 			"
 		>
-			Date: ${date}
+			Date: <span style="font-style: italic;">${date}</span>
 		</p>
 	</div>`,
 		}
