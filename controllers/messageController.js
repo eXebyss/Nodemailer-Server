@@ -41,15 +41,15 @@ class MessageController {
 		<h1 style="color: rgb(254, 255, 225); text-align: center;">
 			A New Message From ${email}!
 		</h1>
-		<h2 style="color: rgb(254, 255, 225); font-weight: normal;">Message: ${message}</h2>
-		<h2 style="color: rgb(254, 255, 225); font-weight: normal;">Name: ${name}</h2>
+		<h2 style="color: rgb(254, 255, 225); font-weight: normal;"><span style="font-style: italic;">Message: </span>${message}</h2>
+		<h2 style="color: rgb(254, 255, 225); font-weight: normal;"><span style="font-style: italic;">Name: </span>${name}</h2>
 		<p
 			style="
 				color: rgb(254, 255, 225);
 				font-weight: normal;			
 			"
 		>
-			Date: <span style="font-style: italic;">${date}</span>
+		<span style="font-style: italic;">Date: </span>${date}
 		</p>
 	</div>`,
 		}
