@@ -5,7 +5,7 @@ require('dotenv').config()
 
 const saveMessage = async ({ name, email, message, date }) => {
 	try {
-		const msg = new Message(name, email, message, date)
+		const msg = new Message({ name, email, message, date })
 		await msg.save()
 		console.log('Message has been saved successfully!')
 	} catch (err) {
