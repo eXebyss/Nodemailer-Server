@@ -114,6 +114,27 @@ class MessageController {
 			saveMessage({ name, email, message, date })
 		}
 	}
+
+	getMessages = async (req, res) => {
+		try {
+			const messages = await Message.find()
+			res.status(200).json(messages)
+		} catch (err) {
+			console.log(err)
+			res.status(500).json({ message: 'Ooopps... Something went wrong... 1' })
+		}
+	}
+
+	getMessage = async (req, res) => {
+		try {
+			const id = req.params.id
+			const messages = await Message.findById({ _id: id })
+			res.status(200).json(messages)
+		} catch (err) {
+			console.log(err)
+			res.status(500).json({ message: 'Ooopps... Something went wrong... 2' })
+		}
+	}
 }
 
 module.exports = new MessageController()

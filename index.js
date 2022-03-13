@@ -10,7 +10,7 @@ app.use(helmet())
 app.use(cors())
 app.use(express.json())
 
-app.use('/api', messageRouter)
+app.use('/api/messages', messageRouter)
 
 const start = async () => {
 	try {
