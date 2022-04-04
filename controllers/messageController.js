@@ -14,14 +14,10 @@ const saveMessage = async ({ name, email, message, date, dateString }) => {
 }
 
 let transporter = nodemailer.createTransport({
-	service: 'gmail',
+	service: 'SendGrid',
 	auth: {
-		type: 'OAuth2',
-		user: process.env.MAIL_USERNAME,
-		pass: process.env.MAIL_PASSWORD,
-		clientId: process.env.OAUTH_CLIENTID,
-		clientSecret: process.env.OAUTH_CLIENT_SECRET,
-		refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+		user: process.env.SENDGRID_USERNAME,
+		pass: process.env.SENDGRID_API_KEY,
 	},
 })
 
@@ -34,7 +30,7 @@ class MessageController {
 		const dateString = req.body.dateString
 
 		let mailOptionsToReceiver = {
-			from: `${email}`,
+			from: 'mf.mail.service@gmail.com',
 			to: 'mf.mail.service@gmail.com',
 			subject: 'A New Message via PP Contact Form❗',
 			text: `A New Message From ${email}! | Message: ${message} | Name: ${name} | Date: ${dateString}`,
