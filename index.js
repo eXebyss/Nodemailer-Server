@@ -3,6 +3,7 @@ const helmet = require('helmet')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const messageRouter = require('./routes/message.routes')
+const skillRouter = require('./routes/skill.routes')
 
 const app = express()
 
@@ -11,6 +12,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/messages', messageRouter)
+app.use('/api/skills', skillRouter)
 
 const start = async () => {
 	try {
