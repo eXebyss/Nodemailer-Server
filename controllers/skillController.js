@@ -1,4 +1,3 @@
-const res = require('express/lib/response')
 const Skill = require('../models/Skill')
 
 class SkillController {
