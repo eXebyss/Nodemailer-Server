@@ -3,8 +3,8 @@ const Skill = require('../models/Skill')
 class SkillController {
 	saveSkill = async (req, res) => {
 		try {
-			const { name, text, rate, date } = req.body
-			const skill = new Skill({ name, text, rate, date })
+			const { name, text, rate, date, dateUpdated } = req.body
+			const skill = new Skill({ name, text, rate, date, dateUpdated })
 			await skill.save()
 			console.log('New skill has been saved successfully!', skill)
 			res.status(201).json({
@@ -40,10 +40,10 @@ class SkillController {
 	updateSkill = async (req, res) => {
 		try {
 			const id = req.params.id
-			const { name, text, rate, date } = req.body
+			const { name, text, rate, dateUpdated } = req.body
 			const skill = await Skill.findByIdAndUpdate(
 				{ _id: id },
-				{ name, text, rate, date },
+				{ name, text, rate, dateUpdated },
 				{ new: true }
 			)
 			res.status(200).json(skill)
