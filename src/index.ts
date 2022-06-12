@@ -1,9 +1,9 @@
-const express = require('express')
-const helmet = require('helmet')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const messageRouter = require('./routes/message.routes')
-const skillRouter = require('./routes/skill.routes')
+import express from 'express'
+import helmet from 'helmet'
+import mongoose from 'mongoose'
+import cors from 'cors'
+import messageRouter from './routes/message.routes'
+import skillRouter from './routes/skill.routes'
 
 const app = express()
 
@@ -16,7 +16,7 @@ app.use('/api/skills', skillRouter)
 
 const start = async () => {
 	try {
-		await mongoose.connect(process.env.DB_URL)
+		await mongoose.connect(process.env.DB_URL as string)
 
 		app.listen(process.env.PORT || 3000, () => {
 			console.log(
