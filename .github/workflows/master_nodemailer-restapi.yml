@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'nodemailer-restapi'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A55EDC2F8F6A451C903F5BFEF2896CD4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0EB3488F9B9E422B9FA12BA9B734EA8E }}
           package: .
