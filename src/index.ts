@@ -5,6 +5,9 @@ import cors from 'cors'
 import messageRouter from './routes/message.routes'
 import skillRouter from './routes/skill.routes'
 
+const port = 8080
+const host = '0.0.0.0'
+
 const app = express()
 
 app.use(helmet())
@@ -18,10 +21,8 @@ const start = async () => {
 	try {
 		await mongoose.connect(process.env.DB_URL as string)
 
-		app.listen(process.env.PORT || 3000, () => {
-			console.log(
-				`Nodemailer is listening at http://localhost:${process.env.PORT}`
-			)
+		app.listen(port, host, () => {
+			console.log(`Nodemailer is listening at http://${host}:${port}`)
 		})
 	} catch (err) {
 		console.log(err)
