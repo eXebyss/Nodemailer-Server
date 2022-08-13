@@ -1,37 +1,34 @@
 {
-	"name": "server",
+	"name": "server_for_portfolio_page",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Server serves as REST API for the portfolio page. Also, it serves as a mail server for the contact form. And it serves as Apollo GraphQL server for the portfolio page.",
 	"main": "index.js",
 	"scripts": {
-		"start": "node ./dist/index.js",
-		"tsc": "tsc",
-		"postinstall": "npm run tsc",
-		"dev": "nodemon --config nodemon.json src/index.ts"
+		"start": "node index.js",
+		"dev": "nodemon index.js"
 	},
-	"keywords": [],
-	"author": "",
+	"keywords": [
+		"NodeJS",
+		"Express",
+		"Apollo GraphQL Server",
+		"Nodemailer",
+		"MongoDB",
+		"Portfolio"
+	],
+	"author": "Mihails Fjodorovs <mf.mail.service@gmail.com>",
 	"license": "ISC",
 	"dependencies": {
+		"apollo-datasource-rest": "^3.6.1",
+		"apollo-server-express": "^3.10.1",
 		"cors": "^2.8.5",
 		"dotenv": "^14.2.0",
 		"express": "^4.17.2",
+		"graphql": "^16.5.0",
 		"helmet": "^5.0.2",
 		"mongoose": "^6.1.7",
 		"nodemailer": "^6.7.2"
 	},
 	"devDependencies": {
-		"@types/cors": "^2.8.12",
-		"@types/dotenv": "^8.2.0",
-		"@types/express": "^4.17.13",
-		"@types/helmet": "^4.0.0",
-		"@types/mongoose": "^5.11.97",
-		"@types/node": "^17.0.41",
-		"@types/nodemailer": "^6.4.4",
-		"@typescript-eslint/parser": "^5.27.1",
-		"nodemon": "^2.0.15",
-		"ts-node": "^10.8.1",
-		"ts-node-dev": "^2.0.0",
-		"typescript": "^4.7.3"
+		"nodemon": "^2.0.15"
 	}
 }

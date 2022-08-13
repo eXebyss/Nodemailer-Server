@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+const { Schema, model } = require('mongoose')
 
 const Skill = new Schema({
 	name: { type: String },
@@ -8,4 +8,4 @@ const Skill = new Schema({
 	dateUpdated: { type: Date, default: Date.now() },
 })
 
-export default model('Skill', Skill)
+module.exports = model('Skill', Skill)

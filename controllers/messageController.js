@@ -1,22 +1,9 @@
-import { Request, Response } from 'express'
-import nodemailer from 'nodemailer'
-import Message from '../models/Message'
+const nodemailer = require('nodemailer')
+const Message = require('../models/Message')
 
 require('dotenv').config()
 
-const saveMessage = async ({
-	name,
-	email,
-	message,
-	date,
-	dateString,
-}: {
-	name: string
-	email: string
-	message: string
-	date: string
-	dateString: string
-}) => {
+const saveMessage = async ({ name, email, message, date, dateString }) => {
 	try {
 		const msg = new Message({ name, email, message, date, dateString })
 		await msg.save()
@@ -35,7 +22,7 @@ let transporter = nodemailer.createTransport({
 })
 
 class MessageController {
-	sendMessage = (req: Request, res: Response) => {
+	sendMessage = (req, res) => {
 		const name = req.body.name
 		const email = req.body.email
 		const message = req.body.message
@@ -125,7 +112,7 @@ class MessageController {
 		}
 	}
 
-	getMessages = async (req: Request, res: Response) => {
+	getMessages = async (req, res) => {
 		try {
 			const messages = await Message.find()
 			res.status(200).json(messages)
@@ -135,7 +122,7 @@ class MessageController {
 		}
 	}
 
-	getMessage = async (req: Request, res: Response) => {
+	getMessage = async (req, res) => {
 		try {
 			const id = req.params.id
 			const messages = await Message.findById({ _id: id })
@@ -147,4 +134,4 @@ class MessageController {
 	}
 }
 
-export default new MessageController()
+module.exports = new MessageController()
