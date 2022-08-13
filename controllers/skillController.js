@@ -1,8 +1,7 @@
-import { Request, Response } from 'express'
-import Skill from '../models/Skill'
+const Skill = require('../models/Skill')
 
 class SkillController {
-	saveSkill = async (req: Request, res: Response) => {
+	saveSkill = async (req, res) => {
 		try {
 			const { name, text, rate, date, dateUpdated } = req.body
 			const skill = new Skill({ name, text, rate, date, dateUpdated })
@@ -17,7 +16,7 @@ class SkillController {
 		}
 	}
 
-	getSkills = async (req: Request, res: Response) => {
+	getSkills = async (req, res) => {
 		try {
 			const skills = await Skill.find()
 			res.status(200).json(skills)
@@ -27,7 +26,7 @@ class SkillController {
 		}
 	}
 
-	getSkill = async (req: Request, res: Response) => {
+	getSkill = async (req, res) => {
 		try {
 			const id = req.params.id
 			const skill = await Skill.findById({ _id: id })
@@ -38,7 +37,7 @@ class SkillController {
 		}
 	}
 
-	updateSkill = async (req: Request, res: Response) => {
+	updateSkill = async (req, res) => {
 		try {
 			const id = req.params.id
 			const { name, text, rate, dateUpdated } = req.body
@@ -54,7 +53,7 @@ class SkillController {
 		}
 	}
 
-	deleteSkill = async (req: Request, res: Response) => {
+	deleteSkill = async (req, res) => {
 		try {
 			const id = req.params.id
 			const skill = await Skill.findByIdAndDelete({ _id: id })
@@ -66,4 +65,4 @@ class SkillController {
 	}
 }
 
-export default new SkillController()
+module.exports = new SkillController()

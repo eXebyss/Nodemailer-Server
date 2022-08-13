@@ -1,10 +1,10 @@
-import Router from 'express'
-import messageController from '../controllers/messageController'
+const Router = require('express')
+const messageController = require('../controllers/messageController')
 
-const router = Router()
+const router = new Router()
 
 router.post('/send-message', messageController.sendMessage)
 router.get('/get-messages/', messageController.getMessages)
 router.get('/get-messages/:id', messageController.getMessage)
 
-export default router
+module.exports = router
