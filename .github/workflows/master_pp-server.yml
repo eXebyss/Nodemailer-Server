@@ -21,11 +21,9 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: yarn add (install), build, and test
+      - name: yarn add (install)
         run: |
           yarn
-          yarn build --if-present
-          yarn test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
