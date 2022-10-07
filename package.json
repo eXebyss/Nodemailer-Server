@@ -1,6 +1,6 @@
 {
 	"name": "server_for_portfolio_page",
-	"version": "2.2.2",
+	"version": "2.3.2",
 	"description": "Server serves as REST API for the portfolio page. Also, it serves as a mail server for the contact form. And it serves as Apollo GraphQL server for the portfolio page.",
 	"main": "index.js",
 	"scripts": {
@@ -18,6 +18,7 @@
 	"author": "Mihails Fjodorovs <mf.mail.service@gmail.com>",
 	"license": "ISC",
 	"dependencies": {
+		"compression": "^1.7.4",
 		"cors": "^2.8.5",
 		"dotenv": "^14.2.0",
 		"express": "^4.17.2",
