@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const compression = require('compression')
 const messageRouter = require('./routes/message.routes')
-const skillRouter = require('./routes/skill.routes')
+const serverStatusRouter = require('./routes/serverStatus.routes')
 
 const app = express()
 
@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(compression())
 
 app.use('/api/messages', messageRouter)
-app.use('/api/skills', skillRouter)
+app.use('/api/server-status', serverStatusRouter)
 
 const start = async () => {
 	try {
