@@ -77,12 +77,12 @@ class MessageController {
     </div>`,
 		}
 
-		const re =
+		const emailRegEx =
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 		if (!email) {
 			res.status(400).json({ message: `Email address is required!` })
-		} else if (!re.test(String(email).toLowerCase())) {
+		} else if (!emailRegEx.test(String(email).toLowerCase())) {
 			res
 				.status(400)
 				.json({ message: `Please provide a valid e-mail address!` })
