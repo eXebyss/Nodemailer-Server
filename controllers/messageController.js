@@ -30,8 +30,8 @@ class MessageController {
 		const dateString = req.body.dateString
 
 		let mailOptionsToReceiver = {
-			from: 'mf.mail.service@gmail.com',
-			to: 'mf.mail.service@gmail.com',
+			from: process.env.SENDGRID_MAIL,
+			to: process.env.SENDGRID_MAIL,
 			subject: 'A New Message via PP Contact Form❗',
 			text: `A New Message From ${email}! | Message: ${message} | Name: ${name} | Date: ${dateString}`,
 			html: `<div style="margin: 0; background: #1e1e2f; width: auto; height: 100vh;">
@@ -52,7 +52,7 @@ class MessageController {
 		}
 
 		let mailOptionsToSender = {
-			from: `mf.mail.service@gmail.com`,
+			from: process.env.SENDGRID_MAIL,
 			to: `${email}`,
 			subject: 'Thank you for you message!',
 			text: `Thank you for you message, ${name}(${email})! You have received this letter automatically because you sent your message via the contact form. I will try to answer you as soon as possible, if that is the purpose of the message. Thank you! Your message: "${message}" 	Date: ${dateString}`,
