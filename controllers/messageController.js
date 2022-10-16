@@ -34,21 +34,16 @@ class MessageController {
 			to: process.env.SENDGRID_MAIL,
 			subject: 'A New Message via PP Contact Form❗',
 			text: `A New Message From ${email}! | Message: ${message} | Name: ${name} | Date: ${dateString}`,
-			html: `<div style="margin: 0; background: #1e1e2f; width: auto; height: 100vh;">
-		<h1 style="color: rgb(254, 255, 225); text-align: center;">
-			A New Message From ${email}!
-		</h1>
-		<h2 style="color: rgb(254, 255, 225); font-weight: normal;"><span style="font-style: italic;">Message: </span>${message}</h2>
-		<h2 style="color: rgb(254, 255, 225); font-weight: normal;"><span style="font-style: italic;">Name: </span>${name}</h2>
-		<p
-			style="
-				color: rgb(254, 255, 225);
-				font-weight: normal;			
-			"
-		>
-		<span style="font-style: italic;">Date: </span>${dateString}
-		</p>
-	</div>`,
+			html: `<div style="margin: 0; width: auto; height: 100vh;">
+				<h1 style="text-align: center;">
+					A New Message From ${email}!
+				</h1>
+				<h2 style="font-weight: normal;"><span style="font-style: italic;">Message: </span>${message}</h2>
+				<h2 style="font-weight: normal;"><span style="font-style: italic;">Name: </span>${name}</h2>
+				<p style="font-weight: normal;">
+				<span style="font-style: italic;">Date: </span>${dateString}
+				</p>
+			</div>`,
 		}
 
 		let mailOptionsToSender = {
@@ -56,25 +51,25 @@ class MessageController {
 			to: `${email}`,
 			subject: 'Thank you for you message!',
 			text: `Thank you for you message, ${name}(${email})! You have received this letter automatically because you sent your message via the contact form. I will try to answer you as soon as possible, if that is the purpose of the message. Thank you! Your message: "${message}" 	Date: ${dateString}`,
-			html: `    <div style="margin: 0; background: #1e1e2f; width: auto; height: 100vh;">
-      <h1 style="color: rgb(254, 255, 225); text-align: center;">
-        Thank you for you message, ${name}(${email})!
-      </h1>
-      <h2 style="color: rgb(254, 255, 225); font-weight: normal;">
-        You have received this letter automatically because your sent your
-        message via the contact form. I will try to answer you as soon as
-        possible, if that is the purpose of the message.
-      </h2>
-      <h2 style="color: rgb(254, 255, 225); font-weight: normal;">
-        Thank you!
-      </h2>
-      <p style="color: rgb(254, 255, 225); font-weight: normal;">
-        Your message: <span style="font-style: italic;">"${message}"</span>
-      </p>
-      <p style="color: rgb(254, 255, 225); font-weight: normal;">
-        Date: <span style="font-style: italic;">${dateString}</span>
-      </p>
-    </div>`,
+			html: `<div style="margin: 0; width: auto; height: 100vh;">
+      			<h1 style="text-align: center;">
+        			Thank you for you message, ${name}(${email})!
+      			</h1>
+      			<h2 style="font-weight: normal;">
+        			You have received this letter automatically because your sent your
+        			message via the contact form. I will try to answer you as soon as
+       				possible, if that is the purpose of the message.
+      			</h2>
+      			<h2 style="font-weight: normal;">
+        			Thank you!
+      			</h2>
+      			<p style="font-weight: normal;">
+        			Your message: <span style="font-style: italic;">"${message}"</span>
+      			</p>
+      			<p style="font-weight: normal;">
+        			Date: <span style="font-style: italic;">${dateString}</span>
+      			</p>
+    		</div>`,
 		}
 
 		const emailRegEx =
