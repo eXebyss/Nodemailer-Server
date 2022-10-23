@@ -1,6 +1,6 @@
 {
 	"name": "server_for_portfolio_page",
-	"version": "2.7.2",
+	"version": "2.7.3",
 	"description": "Server serves as REST API for the portfolio page. Also, it serves as a mail server for the contact form. And it serves as Apollo GraphQL server for the portfolio page.",
 	"main": "index.js",
 	"scripts": {
