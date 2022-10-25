@@ -1,26 +1,9 @@
-const nodemailer = require('nodemailer')
 const Message = require('../models/Message')
 const { emailToReceiver, emailToSender } = require('../context/emails')
+const saveMessage = require('../context/actions')
+const emailTransporter = require('../helper')
 
 require('dotenv').config()
-
-const saveMessage = async ({ name, email, message, date, dateString }) => {
-	try {
-		const msg = new Message({ name, email, message, date, dateString })
-		await msg.save()
-		console.log('Message has been saved successfully!')
-	} catch (err) {
-		console.log(err)
-	}
-}
-
-let transporter = nodemailer.createTransport({
-	service: 'SendGrid',
-	auth: {
-		user: process.env.SENDGRID_USERNAME,
-		pass: process.env.SENDGRID_API_KEY,
-	},
-})
 
 class MessageController {
 	sendMessage = (req, res) => {
@@ -40,7 +23,7 @@ class MessageController {
 				.status(400)
 				.json({ message: `Please provide a valid e-mail address!` })
 		} else {
-			transporter.sendMail(
+			emailTransporter.sendMail(
 				emailToReceiver(name, email, message, dateString),
 				function (err, data) {
 					if (err) {
@@ -49,7 +32,7 @@ class MessageController {
 					} else {
 						console.log('Email to receiver sent successfully!')
 
-						transporter.sendMail(
+						emailTransporter.sendMail(
 							emailToSender(name, email, message, dateString),
 							function (err, data) {
 								if (err) {
